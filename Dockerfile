@@ -7,7 +7,7 @@ WORKDIR /app
 EXPOSE 20880/tcp
 
 # 复制应用压缩文件(此命令包含解压缩功能)
-COPY target/*.jar /app
+COPY target/*.jar /app/app.jar
 
 # 容器启动后执行的脚本
-ENTRYPOINT ["java", "-jar", "-Djava.net.preferIPv4Stack=true -Dnacos.k8s.namespace=${NACOS_K8S_NAMESPACE} -Ddubbo.group=${DUBBO_GROUP} -verbose:class","dubbo-provider-demo-0.0.2-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "-Djava.net.preferIPv4Stack=true -Dnacos.k8s.namespace=${NACOS_K8S_NAMESPACE} -Ddubbo.group=${DUBBO_GROUP} -verbose:class","app.jar"]

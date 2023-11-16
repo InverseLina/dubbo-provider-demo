@@ -34,7 +34,13 @@
     <!-- service implementation, as same as regular local bean -->
     <bean id="demoService" class="com.dubbo.provider.impl.DemoServiceImpl"/>
 
+    <!-- service implementation, as same as regular local bean -->
+    <bean id="healthService" class="com.dubbo.provider.impl.HealthServiceImpl"/>
+
     <!-- declare the service interface to be exported -->
     <dubbo:service interface="com.dubbo.demo.api.DemoService" ref="demoService" version="1.0.0" group="${dubbo.group:}"/>
+
+    <!-- declare the service interface to be exported -->
+    <dubbo:service interface="com.dubbo.demo.api.HealthService" ref="healthService" version="1.0.0" group="${dubbo.group:}"/>
 
 </beans>
